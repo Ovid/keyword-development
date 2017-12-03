@@ -14,7 +14,7 @@ Version 0.01
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 =head1 SYNOPSIS
 
@@ -123,6 +123,34 @@ L<https://perldoc.perl.org/perlsyn.html#Plain-Old-Comments-(Not!)>
 Curtis "Ovid" Poe, C<< <ovid at allaroundtheworld.fr> >>
 
 =head1 BUGS
+
+The C<Keyword::Declare> module on which this code is based struggles with
+postfix dereferencing. Thus, the following sample program fails:
+
+    #!/usr/bin/env perl
+
+    use 5.024;
+    use Keyword::DEVELOPMENT;
+
+    my $aref = [ 1, 2, 3 ];
+    DEVELOPMENT {
+        my @example = map { $_ => $_ } $aref->@*;
+        print join '-' => @example;
+    }
+
+That fails with the following error message:
+
+	Invalid DEVELOPMENT at declare.pl line 8.
+	Expected:
+		DEVELOPMENT  <block>
+	but found:
+		DEVELOPMENT  {
+	Compilation failed at declare.pl line 8.
+
+Switching from postfix to prefix dereferencing makes the error go away:
+C<@$aref> instead of C<< $aref->@* >>.
+
+See also: L<https://rt.cpan.org/Public/Bug/Display.html?id=123817>
 
 Please report any bugs or feature requests to C<bug-keyword-assert at
 rt.cpan.org>, or through the web interface at
