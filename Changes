@@ -1,5 +1,6 @@
 Revision history for Keyword-ASSERT
 
-0.01    Date/time
-        First version, released on an unsuspecting world.
+0.01    December 3rd, 2017
+        Add DEVELOPMENT blocks that don't exist at compile-time in production
+        environments.
 
