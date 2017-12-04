@@ -18,7 +18,7 @@ WriteMakefile(
         'Test::More' => '0',
     },
     PREREQ_PM => {
-        'Keyword::Declare' => '0.001006',
+        'Keyword::Simple' => '0.04',
     },
     dist       => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean      => { FILES    => 'Keyword-DEVELOPMENT-*' },

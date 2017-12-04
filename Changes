@@ -1,5 +1,10 @@
 Revision history for Keyword-DEVELOPMENT
 
+0.04    December 4th, 2017
+		Switched from Keyword::Declare to Keyword::Simple to avoid postfix
+		dereferencing bug. 
+		See: https://rt.cpan.org/Public/Bug/Display.html?id=123817
+
 0.03    December 4th, 2017
         Update docs to show how you can use constant-folding to replicate this
         behavior, if desired.
