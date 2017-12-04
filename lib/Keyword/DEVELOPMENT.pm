@@ -14,7 +14,7 @@ Version 0.01
 
 =cut
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 =head1 SYNOPSIS
 
@@ -118,11 +118,32 @@ Note the handy line directive on line 13 to ensure your line numbers remain
 correct. If you're not familiar with line directives, see
 L<https://perldoc.perl.org/perlsyn.html#Plain-Old-Comments-(Not!)>
 
+=head1 ALTERNATIVES
+
+As SawyerX pointed out, can replicate the functionality of this module in pure
+Perl, if desired:
+
+    use constant PRODUCTION => !!$ENV{PRODUCTION};
+    DEVELOPMENT {expensive_debugging_code()} unless PRODUCTION;
+
+Versus:
+
+    use Keyword::DEVELOPMENT;
+    DEVELOPMENT {expensive_debugging_code()};
+
+The first version works because the line is removed entirely from the source
+code using constant-folding (if C<PRODUCTION> evaluates to false during
+compile time, the entire line will be omitted).
+
+I think C<Keyword::DEVELOPMENT> is less fragile in that you never need to
+remember the C<unless PRODUCTION> statement modifier. However, we do rely on
+the pluggable keyword functionality introduced in 5.012. Be warned!
+
 =head1 AUTHOR
 
 Curtis "Ovid" Poe, C<< <ovid at allaroundtheworld.fr> >>
 
-=head1 BUGS
+=head1 BUGS AND LIMITATIONS
 
 The C<Keyword::Declare> module on which this code is based struggles with
 postfix dereferencing. Thus, the following sample program fails:
