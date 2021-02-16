@@ -1,6 +1,7 @@
 Revision history for Keyword-DEVELOPMENT
 
-0.06
+0.06    February 16, 2021
+        Fix version in POD.
         Fixed an error in the documentation. Thanks, Toby Inkster!
 
 0.05    February 16, 2021
