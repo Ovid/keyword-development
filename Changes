@@ -1,5 +1,8 @@
 Revision history for Keyword-DEVELOPMENT
 
+0.06
+        Fixed an error in the documentation. Thanks, Toby Inkster!
+
 0.05    February 16, 2021
         Added experimental support for only running DEVELOPMENT blocks in
         packages matching a PERL_KEYWORD_DEVELOPMENT_MATCH regular expression.

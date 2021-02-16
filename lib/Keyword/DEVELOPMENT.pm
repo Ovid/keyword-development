@@ -15,7 +15,7 @@ Version 0.04
 
 =cut
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 =head1 SYNOPSIS
 
@@ -167,7 +167,7 @@ As SawyerX pointed out, can replicate the functionality of this module in pure
 Perl, if desired:
 
     use constant PRODUCTION => !!$ENV{PRODUCTION};
-    DEVELOPMENT {expensive_debugging_code()} unless PRODUCTION;
+    do {expensive_debugging_code()} unless PRODUCTION;
 
 Versus:
 
