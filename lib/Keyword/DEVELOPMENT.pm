@@ -11,7 +11,7 @@ Keyword::DEVELOPMENT - Have code blocks which don't exist unless you ask for the
 
 =head1 VERSION
 
-Version 0.04
+Version 0.06
 
 =cut
 
